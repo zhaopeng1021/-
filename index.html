@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="河北省自我介绍：地理位置、历史文化、经济产业、旅游景点、美食特产、城市名片、交通与教育">
+  <title>河北省自我介绍</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #111827;
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+      --brand: #22c55e;
+      --brand-2: #14b8a6;
+      --accent: #60a5fa;
+      --border: #1f2937;
+      --chip: #0b1220;
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Noto Sans, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      color: var(--text);
+      background: radial-gradient(1200px 800px at 80% -10%, rgba(34,197,94,0.15), transparent 60%),
+                  radial-gradient(900px 600px at -10% 10%, rgba(20,184,166,0.15), transparent 60%),
+                  var(--bg);
+      line-height: 1.7;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    header {
+      position: sticky;
+      top: 0;
+      backdrop-filter: saturate(140%) blur(8px);
+      background: rgba(2,6,23,0.6);
+      border-bottom: 1px solid var(--border);
+      z-index: 10;
+    }
+    .nav {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      letter-spacing: .5px;
+    }
+    .logo {
+      width: 28px; height: 28px;
+      border-radius: 8px;
+      background: conic-gradient(from 210deg at 50% 50%, var(--brand), var(--brand-2), var(--accent), var(--brand));
+      box-shadow: 0 0 0 2px rgba(255,255,255,0.04) inset, 0 8px 30px rgba(32, 211, 152, 0.25);
+    }
+    .nav ul { list-style: none; padding: 0; margin: 0; display: flex; gap: 14px; flex-wrap: wrap; }
+    .nav a { color: var(--text); opacity: .9; padding: 6px 10px; border-radius: 8px; }
+    .nav a:hover { background: rgba(255,255,255,0.04); opacity: 1; }
+
+    .hero {
+      max-width: 1080px;
+      margin: 40px auto 10px auto;
+      padding: 24px 20px 0 20px;
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 20px;
+      align-items: center;
+    }
+    .hero h1 {
+      margin: 0 0 12px 0;
+      font-size: clamp(28px, 5vw, 44px);
+      line-height: 1.15;
+      letter-spacing: .3px;
+      background: linear-gradient(90deg, #e5e7eb, #a7f3d0 50%, #93c5fd);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .hero p { color: var(--muted); margin: 0; }
+    .hero-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 16px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+    .stat { background: var(--chip); border: 1px solid var(--border); border-radius: 12px; padding: 12px; }
+    .stat h3 { margin: 0; font-size: 14px; color: var(--muted); font-weight: 600; }
+    .stat p { margin: 6px 0 0 0; font-size: 18px; font-weight: 700; }
+
+    main { max-width: 1080px; margin: 10px auto 60px auto; padding: 0 20px; }
+    section { margin-top: 28px; background: rgba(17,24,39,0.6); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
+    .section-hd { display: flex; align-items: center; gap: 10px; padding: 14px 16px; border-bottom: 1px solid var(--border); background: rgba(2,6,23,0.35); }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--brand-2); box-shadow: 0 0 0 3px rgba(20,184,166,0.15); }
+    .section-hd h2 { margin: 0; font-size: 18px; letter-spacing: .2px; }
+    .section-bd { padding: 14px 16px 18px 16px; color: var(--text); }
+    .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 14px; }
+    .col-4 { grid-column: span 4; }
+    .col-6 { grid-column: span 6; }
+    .col-8 { grid-column: span 8; }
+    .col-12 { grid-column: span 12; }
+
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 14px; }
+    .card h3 { margin: 0 0 6px 0; font-size: 16px; }
+    .muted { color: var(--muted); }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .chip { background: var(--chip); border: 1px solid var(--border); color: var(--text); padding: 6px 10px; border-radius: 999px; font-size: 13px; }
+
+    footer { max-width: 1080px; margin: 30px auto 40px auto; padding: 0 20px; color: var(--muted); text-align: center; }
+
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; gap: 16px; }
+      .hero-card { grid-template-columns: 1fr 1fr; }
+      .col-4 { grid-column: span 6; }
+      .col-6 { grid-column: span 12; }
+      .col-8 { grid-column: span 12; }
+    }
+    @media (max-width: 640px) {
+      .nav ul { display: none; }
+      .hero-card { grid-template-columns: 1fr; }
+      .col-4 { grid-column: span 12; }
+    }
+  </style>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='1'%3E%3Cstop stop-color='%2322c55e'/%3E%3Cstop offset='1' stop-color='%2314b8a6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='12' fill='%230f172a'/%3E%3Cpath d='M10 44 L26 20 L38 20 L22 44 Z M28 44 L44 20 L54 20 L38 44 Z' fill='url(%23g)'/%3E%3C/svg%3E" />
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <div class="brand"><div class="logo" aria-hidden="true"></div>河北省自我介绍</div>
+      <ul>
+        <li><a href="#geo">地理区位</a></li>
+        <li><a href="#history">历史人文</a></li>
+        <li><a href="#economy">经济产业</a></li>
+        <li><a href="#tour">旅游与文化</a></li>
+        <li><a href="#cuisine">美食特产</a></li>
+        <li><a href="#city">城市名片</a></li>
+        <li><a href="#transport">交通枢纽</a></li>
+        <li><a href="#education">教育与高校</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <div class="hero">
+    <div>
+      <h1>人杰地灵 · 京畿要地 · 山海河湖在此汇聚</h1>
+      <p>河北，环抱首都北京与直辖市天津，地跨太行、燕山与华北平原，临渤海、拥白洋淀，兼具厚重历史与现代活力，是连接京津与华北内外的重要门户。</p>
+    </div>
+    <div class="hero-card" role="group" aria-label="河北关键数据">
+      <div class="stat">
+        <h3>省会</h3>
+        <p>石家庄</p>
+      </div>
+      <div class="stat">
+        <h3>面积</h3>
+        <p>约 18.8 万平方公里</p>
+      </div>
+      <div class="stat">
+        <h3>人口</h3>
+        <p>约 7,400 万</p>
+      </div>
+      <div class="stat">
+        <h3>简称</h3>
+        <p>冀</p>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <section id="geo">
+      <div class="section-hd"><span class="dot"></span><h2>地理区位与自然风貌</h2></div>
+      <div class="section-bd">
+        <div class="grid">
+          <div class="card col-8">
+            <h3>山海相拥，平原广袤</h3>
+            <p class="muted">西有太行山，北有燕山，东临渤海，华北平原纵横其间；白洋淀星罗棋布，滦河、永定河、子牙河等水系贯通，形成多元的自然景观。</p>
+          </div>
+          <div class="card col-4">
+            <h3>气候</h3>
+            <p class="muted">温带季风气候，四季分明。春风和煦、夏雨集中、秋高气爽、冬季寒冷干燥，适宜多种作物生长。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="history">
+      <div class="section-hd"><span class="dot"></span><h2>历史人文</h2></div>
+      <div class="section-bd">
+        <div class="grid">
+          <div class="card col-6">
+            <h3>古今交汇</h3>
+            <p class="muted">战国燕赵故地，汉唐繁华通衢。正定古城、赵州桥、承德避暑山庄、长城关隘，处处皆史迹。</p>
+          </div>
+          <div class="card col-6">
+            <h3>人文荟萃</h3>
+            <p class="muted">“燕赵多慷慨悲歌之士”。评剧、河北梆子、乐亭大鼓等地方戏曲绵延传承，非遗资源丰富。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="economy">
+      <div class="section-hd"><span class="dot"></span><h2>经济与现代产业</h2></div>
+      <div class="section-bd">
+        <div class="grid">
+          <div class="card col-4">
+            <h3>传统优势</h3>
+            <p class="muted">钢铁、装备制造、石化、建材等产业基础雄厚，产业链完整。</p>
+          </div>
+          <div class="card col-4">
+            <h3>新兴动能</h3>
+            <p class="muted">数字经济、新能源、新材料、现代医药加速崛起，风光储协同发展。</p>
+          </div>
+          <div class="card col-4">
+            <h3>区域协同</h3>
+            <p class="muted">服务京津冀协同发展，承接非首都功能疏解，雄安新区打造创新之城。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="tour">
+      <div class="section-hd"><span class="dot"></span><h2>旅游与文化名胜</h2></div>
+      <div class="section-bd">
+        <div class="grid">
+          <div class="card col-6">
+            <h3>必访景点</h3>
+            <div class="chips">
+              <span class="chip">承德避暑山庄与外八庙</span>
+              <span class="chip">山海关·老龙头</span>
+              <span class="chip">野三坡</span>
+              <span class="chip">白洋淀湿地</span>
+              <span class="chip">正定古城·隆兴寺</span>
+              <span class="chip">苍岩山</span>
+              <span class="chip">北戴河海滨</span>
+              <span class="chip">清东陵·清西陵</span>
+            </div>
+          </div>
+          <div class="card col-6">
+            <h3>文化体验</h3>
+            <p class="muted">登长城望渤海、游御道观园林；看河北梆子、听评剧、逛古城夜市，感受燕赵豪情与市井烟火。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="cuisine">
+      <div class="section-hd"><span class="dot"></span><h2>美食与特产</h2></div>
+      <div class="section-bd">
+        <div class="grid">
+          <div class="card col-4">
+            <h3>经典菜肴</h3>
+            <p class="muted">驴肉火烧、保定火锅鸡、衡水饸饹、承德莜面、正定八大碗等地方风味。</p>
+          </div>
+          <div class="card col-4">
+            <h3>特色小吃</h3>
+            <p class="muted">驴打滚儿（地方做法）、炸糕、糖火烧、锅巴菜、卷煎、麻豆腐（津冀口味）。</p>
+          </div>
+          <div class="card col-4">
+            <h3>优质特产</h3>
+            <p class="muted">赞皇大枣、遵化板栗、昌黎葡萄与葡萄酒、安国中药材、武安小米、蔚县剪纸。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="city">
+      <div class="section-hd"><span class="dot"></span><h2>城市名片</h2></div>
+      <div class="section-bd">
+        <div class="grid">
+          <div class="card col-6">
+            <h3>省会 · 石家庄</h3>
+            <p class="muted">交通枢纽与产业基地并重，现代都市与周边古城古迹相映成趣。</p>
+          </div>
+          <div class="card col-6">
+            <h3>协同之城 · 雄安新区</h3>
+            <p class="muted">承接北京非首都功能疏解，打造高水平现代化、绿色智慧之城。</p>
+          </div>
+          <div class="card col-4">
+            <h3>沿海门户 · 秦皇岛</h3>
+            <p class="muted">依山面海，北戴河避暑胜地，山海关“天下第一关”。</p>
+          </div>
+          <div class="card col-4">
+            <h3>皇家文化 · 承德</h3>
+            <p class="muted">世界文化遗产密集，满汉文化交融。</p>
+          </div>
+          <div class="card col-4">
+            <h3>古城风韵 · 正定</h3>
+            <p class="muted">千年州府，古塔林立，庙观相望。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="transport">
+      <div class="section-hd"><span class="dot"></span><h2>立体交通与区位优势</h2></div>
+      <div class="section-bd">
+        <div class="grid">
+          <div class="card col-6">
+            <h3>高铁与高速</h3>
+            <p class="muted">京广、京沪、张呼、京哈等高铁纵横交织；京昆、京港澳、唐津等高速连接内外，形成“米”字形通达网络。</p>
+          </div>
+          <div class="card col-6">
+            <h3>港口与机场</h3>
+            <p class="muted">唐山港、黄骅港与京津港群协同；石家庄正定机场、承德普宁机场等构成立体交通体系。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="section-hd"><span class="dot"></span><h2>教育与高校</h2></div>
+      <div class="section-bd">
+        <div class="grid">
+          <div class="card col-6">
+            <h3>高等院校</h3>
+            <p class="muted">河北大学、河北工业大学、华北理工大学、燕山大学等学科门类齐全，服务区域创新发展。</p>
+          </div>
+          <div class="card col-6">
+            <h3>科创生态</h3>
+            <p class="muted">以雄安新区和石保廊地区为引擎，打造协同创新、产学研深度融合的科创走廊。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-hd"><span class="dot"></span><h2>结语</h2></div>
+      <div class="section-bd">
+        <p class="muted">河北是一片厚重与现代交织的热土：有豪迈的燕赵风骨，也有澄澈的湖海风光；有坚实的工业底座，也有澎湃的新兴动能。欢迎来到河北，感受山海平原之间的广阔与温暖。</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    本页为静态介绍页，可直接本地打开 <code>index.html</code> 浏览。
+  </footer>
+
+  <script>
+    // 简易锚点平滑滚动
+    document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+      anchor.addEventListener('click', function (e) {
+        var targetId = this.getAttribute('href').slice(1);
+        var target = document.getElementById(targetId);
+        if (!target) return;
+        e.preventDefault();
+        window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 70, behavior: 'smooth' });
+      });
+    });
+  </script>
+</body>
+</html>
+
